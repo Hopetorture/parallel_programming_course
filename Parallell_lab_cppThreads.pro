@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG += qt
 QMAKE_CXXFLAGS+= -fopenmp
 QMAKE_LFLAGS +=  -fopenmp
+QMAKE_CXXFLAGS += $$QMAKE_CFLAGS_AVX
 
 
 SOURCES += main.cpp \
@@ -15,7 +16,8 @@ SOURCES += main.cpp \
     MPILoad/mpiload.cpp \
     PthreadsLoad/pthreadsload.cpp \
     avxLoad/avxload.cpp \
-    OpenCLLoad/openclload.cpp
+    OpenCLLoad/openclload.cpp \
+    avxLoad/md5_avx2.cpp
 
 HEADERS += \
     threadpool.h \
@@ -26,7 +28,9 @@ HEADERS += \
     MPILoad/mpiload.h \
     PthreadsLoad/pthreadsload.h \
     avxLoad/avxload.h \
-    OpenCLLoad/openclload.h
+    OpenCLLoad/openclload.h \
+    avxLoad/md5_avx2.h \
+    avxLoad/md5_loc.h
 
 INCLUDEPATH += "D:\DevTools\MPI_MS\Include"
 LIBS += "D:\DevTools\MPI_MS\Lib\x64\msmpi.lib"

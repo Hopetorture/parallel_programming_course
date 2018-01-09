@@ -6,6 +6,7 @@
 #include "std_threads/stdthreadload.h"
 #include "openMP/openmpload.h"
 #include "PthreadsLoad/pthreadsload.h"
+#include "avxLoad/avxload.h"
 
 
 using namespace std;
@@ -42,7 +43,11 @@ int main(int argc, char *argv[])
 
     AbstractWorkload *pthreads = new PthreadsLoad();
     pthreads->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
-    pthreads->startLoad(QMap<QString,  QVariant>());
+    ///pthreads->startLoad(QMap<QString,  QVariant>());
+
+    AbstractWorkload *avx = new AVXLoad();
+    avx->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
+    avx->startLoad(QMap<QString, QVariant>());
 
     std::cout << "finished" << std::endl;
     //tr1.join();
