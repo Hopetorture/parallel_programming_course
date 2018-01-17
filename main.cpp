@@ -31,19 +31,19 @@ int main(int argc, char *argv[])
     AbstractWorkload *st = new SingleThread();
     //st->setPrecision(st->precision::milsec);
     st->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
-    ///st->startLoad(QMap<QString,QVariant>());
+    st->startLoad(QMap<QString,QVariant>());
 
     AbstractWorkload *stdtr = new StdThreadLoad();
     stdtr->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
-    ///stdtr->startLoad(QMap<QString,QVariant>());
+    stdtr->startLoad(QMap<QString,QVariant>());
 
     AbstractWorkload *omp = new OpenMPLoad();
     omp->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
-    ///omp->startLoad(QMap<QString,QVariant>());
+    omp->startLoad(QMap<QString,QVariant>());
 
     AbstractWorkload *pthreads = new PthreadsLoad();
     pthreads->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");
-    ///pthreads->startLoad(QMap<QString,  QVariant>());
+    pthreads->startLoad(QMap<QString,  QVariant>());
 
     AbstractWorkload *avx = new AVXLoad();
     avx->setDictPath("D:/Workspace/Qt-cpp/parallels/cpp-threeads/build-Parallell_lab_cppThreads-Desktop_Qt_5_8_0_MinGW_32bit-Debug/debug/passwords.txt");

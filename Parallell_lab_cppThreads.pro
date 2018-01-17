@@ -2,9 +2,12 @@ TEMPLATE = app
 CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG += qt
-QMAKE_CXXFLAGS+= -fopenmp
+QMAKE_CXXFLAGS += -fopenmp
+QMAKE_CXXFLAGS += -mavx2
+#QMAKE_CFLAGS += -mavx2
+#QMAKE_LFLAGS += -mavx2
 QMAKE_LFLAGS +=  -fopenmp
-QMAKE_CXXFLAGS += $$QMAKE_CFLAGS_AVX
+#QMAKE_CXXFLAGS += $$QMAKE_CFLAGS_AVX
 
 
 SOURCES += main.cpp \
@@ -15,9 +18,12 @@ SOURCES += main.cpp \
     openMP/openmpload.cpp \
     MPILoad/mpiload.cpp \
     PthreadsLoad/pthreadsload.cpp \
-    avxLoad/avxload.cpp \
+    #avxLoad/avxload.cpp \
     OpenCLLoad/openclload.cpp \
-    avxLoad/md5_avx2.cpp
+    #avxLoad/md5_avx2.cpp
+    avxLoad/avxload.cpp \
+    avxLoad/md5_avx2.cpp \
+    ##openmpi/main.cpp
 
 HEADERS += \
     threadpool.h \
@@ -27,10 +33,24 @@ HEADERS += \
     openMP/openmpload.h \
     MPILoad/mpiload.h \
     PthreadsLoad/pthreadsload.h \
-    avxLoad/avxload.h \
+    #avxLoad/avxload.h \
     OpenCLLoad/openclload.h \
+    #avxLoad/md5_avx2.h \
+    #avxLoad/md5_loc.h
+    avxLoad/avxload.h \
     avxLoad/md5_avx2.h \
     avxLoad/md5_loc.h
 
-INCLUDEPATH += "D:\DevTools\MPI_MS\Include"
-LIBS += "D:\DevTools\MPI_MS\Lib\x64\msmpi.lib"
+#INCLUDEPATH += "D:\DevTools\MPI_MS\Include"
+#LIBS += "D:\DevTools\MPI_MS\Lib\x64\msmpi.lib"
+
+#SUBDIRS += \
+ #   openmpi/qt-hash.pro
+
+#DISTFILES += \
+#   openmpi/a.out \
+#    openmpi/0 \
+ #   openmpi/1 \
+#    openmpi/2 \
+#    openmpi/run.py \
+#    openmpi/readme

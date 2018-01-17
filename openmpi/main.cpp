@@ -1,7 +1,8 @@
+#ifdef MPI_SUPPORT
 #include "mpi.h"
 //#include <QCoreApplication>
 //#include "QCryptographicHash"
-#include <openssl/md5.h>
+//#include <openssl/md5.h>
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
@@ -11,12 +12,14 @@
 
 #define bufferSize 16
 
+
 int main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
     //MPI_Init(&argc,&argv);
     //MPI::Init();
     int size, rank;
+
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
@@ -38,9 +41,9 @@ int main(int argc, char *argv[])
     //std::cout << std::to_string(rank) << "opened" << std::endl;
     std::string digest;
     std::list<std::string> totalResult;
-    while(infile >> digest){
+    /*while(infile >> digest){
         unsigned char result[MD5_DIGEST_LENGTH];
-        MD5((unsigned char*)digest.c_str(),digest.size(),result);
+        //MD5((unsigned char*)digest.c_str(),digest.size(),result);
 
         char converted[bufferSize*2 + 1];
         int i;
@@ -51,7 +54,7 @@ int main(int argc, char *argv[])
         totalResult.push_back(s);
         //std::cout << s << " <<value" << std::endl;
     }
-
+*/
     MPI_Barrier(MPI_COMM_WORLD);
 
     MPI_Finalize();
@@ -76,3 +79,4 @@ int main(int argc, char *argv[])
    // return a.exec();
     return 0;
 }
+#endif

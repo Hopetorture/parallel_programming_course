@@ -3,7 +3,7 @@
 #include <QTextStream>
 #include <QStringList>
 #include <QCryptographicHash>
-#include <mpi.h>
+//#include <mpi.h>
 #include <stdio.h>
 
 

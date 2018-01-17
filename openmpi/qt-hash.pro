@@ -2,11 +2,14 @@ QT -= gui
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
-INCLUDEPATH += /usr/local/openmpi/include
-INCLUDEPATH += /usr/local/openmpi/include
-LIBS += /usr/local/openmpi/lib/libmpi.so
-LIBS += -lssl
-LIBS += -lcrypto
+#INCLUDEPATH += /usr/local/openmpi/include
+#INCLUDEPATH += /usr/local/openmpi/includeLIBS += /usr/local/openmpi/lib/libmpi.so
+#LIBS += -lssl
+#LIBS += -lcrypto
+
+INCLUDEPATH += "D:\DevTools\MPI_MS\Include"
+LIBS += "D:\DevTools\MPI_MS\Lib\x64\msmpi.lib"
+
 #QMAKE_CC = mpicc
 #QMAKE_CXX = mpicxx
 #QMAKE_CXX_RELEASE = $$QMAKE_CXX
