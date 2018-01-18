@@ -2,6 +2,8 @@
 #define OPENCLLOAD_H
 
 #include "abstractworkload.h"
+//#include <CL/opencl.h>
+//#include <cl.hpp>
 
 class OpenCLLoad : AbstractWorkload
 {

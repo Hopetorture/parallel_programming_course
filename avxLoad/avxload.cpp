@@ -33,8 +33,9 @@ QStringList AVXLoad::startLoad(QMap<QString, QVariant> args)
     startTimer();
     //std::cout << "single thread calculations" << std::endl;
 
-    for (int i = 7; i < passwdDict.size(); i+=8){
+    for (int i = 7; i < passwdDict.size(); i+=8){ // optimizable?
           md5_t h;
+          resultPOD p;
           h.prepare_tables();
           QList<QByteArray> arr;
           arr.append(passwdDict.at(i).toUtf8());
@@ -45,7 +46,7 @@ QStringList AVXLoad::startLoad(QMap<QString, QVariant> args)
           arr.append(passwdDict.at(i - 5).toUtf8());
           arr.append(passwdDict.at(i - 6).toUtf8());
           arr.append(passwdDict.at(i - 7).toUtf8());
-          h.avx2_md5(arr);
+          h.avx2_md5(arr, &p);
 //        md5::md5_t h;
 //        h.process((void*)s.toLocal8Bit().data(), s.toLocal8Bit().length());
 //        char res [16];

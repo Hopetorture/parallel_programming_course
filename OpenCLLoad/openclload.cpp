@@ -2,6 +2,12 @@
 #include <QFile>
 #include <QTextStream>
 #include <QStringList>
+#include <iostream>
+//#include <CL/cl.hpp>
+//#include <CL/cl.h>
+//#include <CL/cl_platform.h>
+//#include <CL/opencl.h>
+
 
 OpenCLLoad::OpenCLLoad()
 {

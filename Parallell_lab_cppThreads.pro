@@ -2,12 +2,17 @@ TEMPLATE = app
 CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG += qt
+#CONFIG += -lOpenCL
 QMAKE_CXXFLAGS += -fopenmp
 QMAKE_CXXFLAGS += -mavx2
+#QMAKE_CXXFLAGS += -lOpenCL
 #QMAKE_CFLAGS += -mavx2
 #QMAKE_LFLAGS += -mavx2
 QMAKE_LFLAGS +=  -fopenmp
 #QMAKE_CXXFLAGS += $$QMAKE_CFLAGS_AVX
+#INCLUDEPATH += D:\DevTools\Opencl-Intel\OpenCL\sdk\include\
+#LIBS += -LD:\DevTools\Opencl-Intel\OpenCL\sdk\lib\x64\OpenCL.lib -lOpenCL
+#DEPENDPATH += D:\DevTools\Opencl-Intel\OpenCL\sdk\lib\x64\
 
 
 SOURCES += main.cpp \
@@ -43,6 +48,7 @@ HEADERS += \
 
 #INCLUDEPATH += "D:\DevTools\MPI_MS\Include"
 #LIBS += "D:\DevTools\MPI_MS\Lib\x64\msmpi.lib"
+
 
 #SUBDIRS += \
  #   openmpi/qt-hash.pro
